@@ -15,7 +15,7 @@ def weak_edge_k_metric_dimension_ILP(graph, k):
 
     # Constraint:
     for ea, eb in graph.edges(labels=False):
-    p.add_constraint(sum(abs(graph.distance(ea, vertex) - graph.distance(eb, vertex)) * x[vertex] for vertex in vertices) >= k)
+        p.add_constraint(sum(abs(graph.distance(ea, vertex) - graph.distance(eb, vertex)) * x[vertex] for vertex in vertices) >= k)
 
     # Solve the ILP
     p.solve()
