@@ -48,7 +48,7 @@ def weak_vertex_k_metric_dimension_ILP(graph, k):
     for u in vertices:
         for v in vertices:
             if u != v:
-                p.add_constraint(sum(abs(graph.distance(u, s) + graph.distance(v, s)) * x[vertex] for vertex in vertices) >= k)
+                p.add_constraint(sum(abs(graph.distance(u, s) + graph.distance(v, s)) * x[s] for s in vertices) >= k)
 
     # Solve the ILP
     p.solve()
