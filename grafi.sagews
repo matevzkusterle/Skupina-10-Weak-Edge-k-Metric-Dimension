@@ -91,6 +91,24 @@ da = graphs.DartGraph()
 
 show(da)
 
+#drevesa
+T = graphs.BalancedTree(4,2)
+T.show()
+
+from sage.graphs.graph_plot import GraphPlot
+G = graphs.HoffmanSingletonGraph()
+T = Graph()
+T.add_edges(G.min_spanning_tree(starting_vertex=0))
+T.show(layout='tree', tree_root=0)
+
+T = list(graphs.trees(7))
+t = T[2]
+t.show()
+
+T = list(graphs.trees(7))
+t = T[3]
+t.show()
+
 
 #finbonaccijeva drevesa
 
