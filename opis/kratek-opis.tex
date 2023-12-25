@@ -29,11 +29,19 @@
         najmanjše podmnožice $S$ grafa $G$, tako da za vsak par povezav $e,f \in E(G)$ velja $\Delta_S (e,f) \geq k$.
     \end{definition}
 
-   
+    \begin{definition}
+        Naj bo S takšna podmnožica $V(G)$, da zanjo velja: 
+        $\forall x,y \in V(G)$ obstaja vsaj $k$ različnih vozlišč $v_1, v_2, \ldots, v_k \in S$, tako da
+        $d_G(x,v_i) \neq d_G(y,v_i) \forall i = 1,\ldots,k$. Potem je S \textbf{$\textbf{k}$-razrešitvena množica} za graf G.
+    \end{definition}
+        
+    \begin{definition}
+        $\kappa'(G)$ je največje naravno število $k$, za katerega graf G vsebuje $k$-razrešitveno množico S. 
+    \end{definition}
 \pagebreak
 
 \section{Problem} 
-Za več vrst različnih grafov morava ugotoviti šibko k-metrično dimenzijo na povezavah in pri tem določiti največjo možno vrednost k. Iz dobljenih rezultatov bo potrebno razbrati formule za dimenzije posameznih vrst grafov. Kasneje pa bova poiskala grafe, za katere se šibka k-metrična dimenzija na povezavah razlikuje od navadne šibke k-metrične dimenzije na povezavah.
+Za več vrst različnih grafov morava ugotoviti šibko k-metrično dimenzijo na povezavah in $\kappa'$, ter pri tem določiti največjo možno vrednost k. Iz dobljenih rezultatov bo potrebno razbrati formule za dimenzije posameznih vrst grafov. Kasneje pa bova poiskala grafe, za katere se šibka k-metrična dimenzija na povezavah razlikuje od navadne šibke k-metrične dimenzije na povezavah.
     
 \section{Načrt dela}
 Najprej bova implementirala sledeče:
@@ -41,7 +49,18 @@ Najprej bova implementirala sledeče:
         \item funkcijo, ki sprejme graf $G$ in vrednost $k$, ter vrne šibko k-metrično dimenzijo na povezavah grafa
         \item funkcijo, ki določi največjo vrednost $k$ grafa $G$
         \item funkcijo, ki sprejme graf $G$ in vrednost $k$, ter vrne šibko k-metrično dimenzijo grafa, da bomo primerjali dimenzije
+        \item funkcijo, ki sprejme graf $G$ in vrne njegovo $\kappa'$ vrednost
     \end{itemize}
 
 Potem pa bova te funkcije testitirala na pripravljenih grafih in skušala priti do predlaganih zaključkov.
+
+\section{Predlagani zaključki}
+Trenutno za $\kappa'$ še nimava dokončnih rezultatov, ampak se zdi, da bodo za naslednje družine grafov 
+rezultati sledeči:
+    \begin{itemize}
+        \item poti: $n-3$
+        \item cikli: $2*\lceil (n-4)/2 \rceil$
+        \item polni grafi: $0$
+        \item dvodelni polni grafi: $0$
+    \end{itemize}
 \end{document}
