@@ -20,6 +20,27 @@ def weak_edge_k_metric_dimension_ILP(graph, k):
     # Solve the ILP
     p.solve()
 
+#CODE FOR κ′(G) (largest integer k for which G contains k-resolving set)
+
+def κ_G(graph):
+
+    # Define variables
+    vertices = graph.vertices()
+
+    # Choose a pair of vertices
+    list = []
+    for a in vertices:
+        for b in vertices:
+            if a != b:
+                k = 0
+                # Count the number of vertices that satisfy the condition
+                for v in vertices:
+                    if (graph.distance(v,a) != graph.distance(v,b)):
+                        k = k+1
+                list.append(k)
+    list.sort()
+    # Return κ′
+    return list[0]
     # Extract the solution
     solution = p.get_values(x)
 
